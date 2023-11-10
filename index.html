@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comunicator</title>
+</head>
+<body>
+<div class="container">
+    <form onsubmit="senEmail(); reset(); return false;">
+        <h3>
+            Get message
+        </h3>
+        <input type="text" name="name" placeholder="youre name" required>
+        <input type="eimail" name="email" placeholder="youre email" required>
+        <input type="text" name="phone" placeholder="youre phone" required>
+        <textarea id="mesage" rows="4" placeholder="How can we help you?"></textarea>
+        <button type="submit">Send</button>
+    </form>
+</div>
+    <script src=" https://smtpjs.com/v3/smtp.js">
+        function senEmail(){
+    
+        Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "zwirek2000@interia.pl",
+    Password : "zwirek15",
+    To : 'zwireckimateusz@gmail.com.com',
+    From : document.getEelementById("email").value,
+    Subject : "New concact from Enquiry",
+    Body : "Name:" + document.getElementById("name").value
+    + "<br> Email: " + document.getElementById("email").value
+    + "<br> Phone no: " + document.getEelementById("phone").value
+    + "<br> Message: " + document.getElementById("message").value
+    }).then(
+     message => alert("message send successfully!")
+    );
+    }
+    </script>
+</div>
+</body>
+</html>
